@@ -1,6 +1,7 @@
 
 import { ArrowRight, Star, Zap, Diamond } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useNavigate } from 'react-router-dom';
 
 const collections = [
   {
@@ -33,6 +34,12 @@ const collections = [
 ];
 
 export const ExclusiveCollections = () => {
+  const navigate = useNavigate();
+  
+  const handleDiscoverClick = (collectionName: string) => {
+    // Navigate to shop with collection filter
+    navigate(`/shop?collection=${encodeURIComponent(collectionName.toLowerCase())}`);
+  };
   return (
     <section className="py-20 lg:py-32 bg-gradient-to-b from-charcoal to-obsidian" id="exclusive">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -79,13 +86,24 @@ export const ExclusiveCollections = () => {
                   ))}
                 </ul>
                 
-                <Button
-                  size="lg"
-                  className="bg-brushed-steel text-obsidian hover:bg-pale-steel px-8"
-                >
-                  DISCOVER COLLECTION
-                  <ArrowRight className="ml-2" size={20} />
-                </Button>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Button
+                    size="lg"
+                    className="bg-brushed-steel text-obsidian hover:bg-pale-steel px-8 group"
+                    onClick={() => handleDiscoverClick(collection.name)}
+                  >
+                    DISCOVER COLLECTION
+                    <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
+                  </Button>
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="border-brushed-steel text-brushed-steel hover:bg-brushed-steel/10 px-8 group"
+                  >
+                    LEARN MORE
+                    <ArrowRight className="ml-2 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" size={20} />
+                  </Button>
+                </div>
               </div>
               
               <div className={index % 2 === 1 ? 'lg:col-start-1' : ''}>

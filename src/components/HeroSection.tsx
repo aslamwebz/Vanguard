@@ -31,13 +31,13 @@ export const HeroSection = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-            <Button 
-              size="lg" 
-              className="bg-brushed-steel text-obsidian hover:bg-pale-steel font-semibold px-8 py-4 text-lg tracking-wide transition-all duration-300 hover:scale-105"
+            <a 
+              href="#timepieces"
+              className="inline-flex items-center justify-center bg-brushed-steel text-obsidian hover:bg-pale-steel font-semibold px-8 py-4 text-lg tracking-wide transition-all duration-300 hover:scale-105 rounded-md group"
             >
               EXPLORE THE COLLECTION
-              <ArrowRight className="ml-2" size={20} />
-            </Button>
+              <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
+            </a>
             
             <Link
               to="/shop"
