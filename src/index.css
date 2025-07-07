@@ -1,0 +1,89 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. */
+
+@layer base {
+  :root {
+    --background: 12 12 12;
+    --foreground: 255 255 255;
+
+    --card: 26 26 26;
+    --card-foreground: 255 255 255;
+
+    --popover: 26 26 26;
+    --popover-foreground: 255 255 255;
+
+    --primary: 160 170 182;
+    --primary-foreground: 12 12 12;
+
+    --secondary: 64 64 64;
+    --secondary-foreground: 255 255 255;
+
+    --muted: 38 38 38;
+    --muted-foreground: 163 163 163;
+
+    --accent: 160 170 182;
+    --accent-foreground: 12 12 12;
+
+    --destructive: 239 68 68;
+    --destructive-foreground: 255 255 255;
+
+    --border: 38 38 38;
+    --input: 38 38 38;
+    --ring: 160 170 182;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 12 12 12;
+    --sidebar-foreground: 255 255 255;
+    --sidebar-primary: 160 170 182;
+    --sidebar-primary-foreground: 12 12 12;
+    --sidebar-accent: 26 26 26;
+    --sidebar-accent-foreground: 255 255 255;
+    --sidebar-border: 38 38 38;
+    --sidebar-ring: 160 170 182;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-obsidian text-white font-sans;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+@layer components {
+  .luxury-gradient {
+    background: linear-gradient(135deg, #0C0C0C 0%, #1A1A1A 50%, #0C0C0C 100%);
+  }
+
+  .steel-gradient {
+    background: linear-gradient(135deg, #A0AAB6 0%, #C8D0DB 50%, #A0AAB6 100%);
+  }
+
+  .shimmer-text {
+    background: linear-gradient(90deg, #A0AAB6 0%, #C8D0DB 50%, #A0AAB6 100%);
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: steel-shimmer 3s linear infinite;
+  }
+
+  .glass-effect {
+    background: rgba(26, 26, 26, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(160, 170, 182, 0.2);
+  }
+}
