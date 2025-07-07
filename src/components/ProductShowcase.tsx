@@ -1,9 +1,10 @@
 
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { ArrowRight, Eye } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
-type Product = {
+export type Product = {
   id: number;
   name: string;
   price: string;
@@ -12,7 +13,7 @@ type Product = {
   category: 'watch' | 'ring' | 'tie' | 'cufflinks' | 'bracelet' | 'pen';
 };
 
-const products: Product[] = [
+export const products: Product[] = [
   // Watches
   {
     id: 1,
@@ -131,16 +132,21 @@ const products: Product[] = [
 ];
 
 export const ProductShowcase = () => {
+  const navigate = useNavigate();
   const [hoveredProduct, setHoveredProduct] = useState<number | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<'all' | Product['category']>('all');
 
   const filteredProducts = selectedCategory === 'all' 
     ? products 
     : products.filter(product => product.category === selectedCategory);
+
+  const handleViewDetails = (productId: number) => {
+    navigate(`/product/${productId}`);
+  };  
     
 
   return (
-    <section className="py-20 lg:py-32 bg-charcoal">
+    <section className="py-20 lg:py-32 bg-charcoal" id="timepieces">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-6xl font-serif font-bold mb-6">
@@ -203,6 +209,10 @@ export const ProductShowcase = () => {
                       variant="outline"
                       size="lg"
                       className="border-brushed-steel text-brushed-steel hover:bg-brushed-steel hover:text-obsidian"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleViewDetails(product.id);
+                      }}
                     >
                       <Eye className="mr-2" size={20} />
                       VIEW DETAILS

@@ -5,7 +5,7 @@ import { Input } from '@/components/ui/input';
 
 export const NewsletterSection = () => {
   return (
-    <section className="py-20 lg:py-32 bg-charcoal">
+    <section className="py-20 lg:py-32 bg-charcoal" id="contact">
       <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
         <div className="mb-8">
           <Crown className="text-brushed-steel mx-auto mb-6" size={48} />

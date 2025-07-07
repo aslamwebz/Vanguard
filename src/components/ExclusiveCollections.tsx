@@ -34,7 +34,7 @@ const collections = [
 
 export const ExclusiveCollections = () => {
   return (
-    <section className="py-20 lg:py-32 bg-gradient-to-b from-charcoal to-obsidian">
+    <section className="py-20 lg:py-32 bg-gradient-to-b from-charcoal to-obsidian" id="exclusive">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-6xl font-serif font-bold mb-6">
