@@ -38,7 +38,21 @@ export const ExclusiveCollections = () => {
   
   const handleDiscoverClick = (collectionName: string) => {
     // Navigate to shop with collection filter
-    navigate(`/shop?collection=${encodeURIComponent(collectionName.toLowerCase())}`);
+    navigate(`/shop?collection=${encodeURIComponent(collectionName.toLowerCase())}`, { state: { scrollToTop: true } });
+  };
+  
+  const handleLearnMore = (collectionId: number) => {
+    // Navigate to a dedicated collection page or show a modal with more details
+    // For now, we'll navigate to the shop with the collection filtered
+    const collection = collections.find(c => c.id === collectionId);
+    if (collection) {
+      navigate(`/shop?collection=${encodeURIComponent(collection.name.toLowerCase())}`, { 
+        state: { 
+          showCollectionDetails: true,
+          collectionName: collection.name
+        } 
+      });
+    }
   };
   return (
     <section className="py-20 lg:py-32 bg-gradient-to-b from-charcoal to-obsidian" id="exclusive">
@@ -99,6 +113,7 @@ export const ExclusiveCollections = () => {
                     variant="outline"
                     size="lg"
                     className="border-brushed-steel text-brushed-steel hover:bg-brushed-steel/10 px-8 group"
+                    onClick={() => handleLearnMore(collection.id)}
                   >
                     LEARN MORE
                     <ArrowRight className="ml-2 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" size={20} />

@@ -1,17 +1,34 @@
 
-import { useState, useEffect } from 'react';
-import { Menu, X, ShoppingBag, User, Heart } from 'lucide-react';
+import { useState, useEffect, useRef } from 'react';
+import { Menu, X, ShoppingBag, User, Heart, Package, LogOut, ChevronDown } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useCartWishlist } from '@/contexts/CartWishlistContext';
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
   const { cart, wishlist } = useCartWishlist();
   const location = useLocation();
   const navigate = useNavigate();
+  const userMenuRef = useRef<HTMLDivElement>(null);
+  
+  // Close user menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (userMenuRef.current && !userMenuRef.current.contains(event.target as Node)) {
+        setIsUserMenuOpen(false);
+      }
+    };
+    
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
   const isHomePage = location.pathname === '/';
-  const hideSectionLinks = ['/cart', '/wishlist'].includes(location.pathname);
+  // Only show section links on the home page
+  const showSectionLinks = isHomePage;
 
   const handleSectionClick = (sectionId: string, e: React.MouseEvent) => {
     if (!isHomePage) {
@@ -58,22 +75,24 @@ export const Navigation = () => {
           </div>
 
           {/* Desktop Navigation - Section Links */}
-          {!hideSectionLinks && (
+          {showSectionLinks && (
             <div className="hidden md:flex items-center space-x-8">
-              {['TIMEPIECES', 'EXCLUSIVE', 'HERITAGE', 'CONTACT'].map((section) => (
+              {['COLLECTIONS', 'EXCLUSIVE', 'HERITAGE'].map((section) => (
                 <a 
                   key={section}
                   href={`#${section.toLowerCase()}`}
                   onClick={(e) => handleSectionClick(section.toLowerCase(), e)}
-                  className={`text-sm font-medium tracking-wide transition-colors ${
-                    isHomePage 
-                      ? 'hover:text-brushed-steel cursor-pointer' 
-                      : 'text-gray-400 cursor-default hover:text-gray-400'
-                  }`}
+                  className="text-sm font-medium tracking-wide transition-colors hover:text-brushed-steel cursor-pointer"
                 >
                   {section}
                 </a>
               ))}
+              <Link 
+                to="/shop" 
+                className="text-sm font-medium tracking-wide transition-colors hover:text-brushed-steel"
+              >
+                SHOP
+              </Link>
             </div>
           )}
 
@@ -95,9 +114,39 @@ export const Navigation = () => {
                 </span>
               )}
             </Link>
-            <button className="p-2 hover:text-brushed-steel transition-colors">
-              <User size={20} />
-            </button>
+            <div className="relative" ref={userMenuRef}>
+              <button 
+                onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
+                className="flex items-center space-x-1 p-2 hover:text-brushed-steel transition-colors"
+              >
+                <User size={20} />
+                <ChevronDown size={16} className={`transition-transform ${isUserMenuOpen ? 'rotate-180' : ''}`} />
+              </button>
+              
+              {/* User Dropdown Menu */}
+              {isUserMenuOpen && (
+                <div className="absolute right-0 mt-2 w-48 bg-charcoal border border-brushed-steel/20 rounded-md shadow-lg py-1 z-50">
+                  <Link
+                    to="/orders"
+                    onClick={() => setIsUserMenuOpen(false)}
+                    className="flex items-center px-4 py-2 text-sm text-white hover:bg-brushed-steel/10"
+                  >
+                    <Package size={16} className="mr-2" />
+                    My Orders
+                  </Link>
+                  <button
+                    className="w-full text-left flex items-center px-4 py-2 text-sm text-white hover:bg-brushed-steel/10"
+                    onClick={() => {
+                      // Handle sign out
+                      setIsUserMenuOpen(false);
+                    }}
+                  >
+                    <LogOut size={16} className="mr-2" />
+                    Sign Out
+                  </button>
+                </div>
+              )}
+            </div>
           </div>
 
           {/* Mobile menu button */}
@@ -116,43 +165,42 @@ export const Navigation = () => {
           <div className="md:hidden absolute top-full left-0 right-0 glass-effect border-t border-brushed-steel/20">
             <div className="px-6 py-6 space-y-4">
               {/* Mobile Navigation Links */}
-              {!hideSectionLinks && (
-                <div className="space-y-6">
-                  {['TIMEPIECES', 'EXCLUSIVE', 'HERITAGE', 'CONTACT'].map((section) => (
-                  <a 
-                    key={section}
-                    href={`#${section.toLowerCase()}`}
-                    onClick={(e) => {
-                      if (!isHomePage) {
-                        e.preventDefault();
-                        navigate('/');
-                        // Scroll to section after a short delay to allow the page to load
-                        setTimeout(() => {
-                          const element = document.getElementById(section.toLowerCase());
-                          if (element) {
-                            element.scrollIntoView({ behavior: 'smooth' });
-                          }
-                        }, 100);
-                      } else {
-                        e.preventDefault();
-                        const element = document.getElementById(section.toLowerCase());
-                        if (element) {
-                          element.scrollIntoView({ behavior: 'smooth' });
-                          setIsOpen(false);
-                        }
-                      }
-                    }}
-                    className={`block text-lg font-medium tracking-wide transition-colors ${
-                      isHomePage 
-                        ? 'hover:text-brushed-steel cursor-pointer' 
-                        : 'text-gray-400 cursor-default hover:text-gray-400'
-                    }`}
-                  >
-                    {section}
-                  </a>
-                ))}
-                </div>
-              )}
+              <div className="md:hidden mt-4 space-y-4">
+                {showSectionLinks && (
+                  <>
+                    <a 
+                      href="#collections" 
+                      className="block px-4 py-2 text-sm font-medium hover:bg-charcoal/50 rounded-md"
+                      onClick={(e) => {
+                        handleSectionClick('collections', e);
+                        setIsOpen(false);
+                      }}
+                    >
+                      Collections
+                    </a>
+                    <a 
+                      href="#heritage" 
+                      className="block px-4 py-2 text-sm font-medium hover:bg-charcoal/50 rounded-md"
+                      onClick={(e) => {
+                        handleSectionClick('heritage', e);
+                        setIsOpen(false);
+                      }}
+                    >
+                      Heritage
+                    </a>
+                    <a 
+                      href="#exclusive" 
+                      className="block px-4 py-2 text-sm font-medium hover:bg-charcoal/50 rounded-md"
+                      onClick={(e) => {
+                        handleSectionClick('exclusive', e);
+                        setIsOpen(false);
+                      }}
+                    >
+                      Exclusive
+                    </a>
+                  </>
+                )}
+              </div>
               <div className="flex items-center space-x-4 pt-4 border-t border-brushed-steel/20">
                 <Link 
                   to="/wishlist" 

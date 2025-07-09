@@ -27,7 +27,7 @@ export const products: Product[] = [
     id: 2,
     name: 'IMPERIAL CHRONO',
     price: '$18,900',
-    image: 'https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?auto=format&fit=crop&w=1200&q=80',
+    image: 'https://images.unsplash.com/photo-1547996476-9a9d9f2b5b00?auto=format&fit=crop&w=1200&q=80',
     description: 'Limited edition chronograph with titanium construction',
     category: 'watch'
   },
@@ -35,7 +35,7 @@ export const products: Product[] = [
     id: 3,
     name: 'DYNASTY ELITE',
     price: '$25,000',
-    image: 'https://images.unsplash.com/photo-1547996160-81dfa63595aa?auto=format&fit=crop&w=1200&q=80',
+    image: 'https://images.unsplash.com/photo-1547996476-9a9d9f2b5b00?auto=format&fit=crop&w=1200&q=80',
     description: 'Perpetual calendar with moon phase complications',
     category: 'watch'
   },
@@ -45,7 +45,7 @@ export const products: Product[] = [
     id: 4,
     name: 'PLATINUM SIGNET',
     price: '$8,500',
-    image: 'https://images.unsplash.com/photo-1611591437281-4608be1af65f?auto=format&fit=crop&w=1200&q=80',
+    image: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1200&q=80',
     description: 'Handcrafted platinum signet ring with family crest',
     category: 'ring'
   },
@@ -71,7 +71,7 @@ export const products: Product[] = [
     id: 7,
     name: 'CASHMERE BOW TIE',
     price: '$395',
-    image: 'https://images.unsplash.com/photo-1621351183012-e2f797f4eb78?auto=format&fit=crop&w=1200&q=80',
+    image: 'https://images.unsplash.com/photo-1581952976147-5a2d15560349?auto=format&fit=crop&w=1200&q=80',
     description: 'Self-tie cashmere bow tie in midnight blue',
     category: 'tie'
   },
@@ -81,7 +81,7 @@ export const products: Product[] = [
     id: 8,
     name: 'OBSIDIAN CUFFLINKS',
     price: '$1,950',
-    image: 'https://images.unsplash.com/photo-1588444645088-6a0669c4cb05?auto=format&fit=crop&w=1200&q=80',
+    image: 'https://images.unsplash.com/photo-1602173574767-37ac01994b2a?auto=format&fit=crop&w=1200&q=80',
     description: '18k gold cufflinks with obsidian inlay',
     category: 'cufflinks'
   },
@@ -89,7 +89,7 @@ export const products: Product[] = [
     id: 9,
     name: 'ENAMEL CUFFLINKS',
     price: '$1,250',
-    image: 'https://images.unsplash.com/photo-1606761568499-6d2451b23c66?auto=format&fit=crop&w=1200&q=80',
+    image: 'https://images.unsplash.com/photo-1602173574767-37ac01994b2a?auto=format&fit=crop&w=1200&q=80',
     description: 'Sterling silver with royal blue enamel',
     category: 'cufflinks'
   },
@@ -99,16 +99,16 @@ export const products: Product[] = [
     id: 10,
     name: 'GOLD LINK BRACELET',
     price: '$5,200',
-    image: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1200&q=80',
+    image: 'https://images.unsplash.com/photo-1603569283847-aa295f0d016a?auto=format&fit=crop&w=1200&q=80',
     description: '18k gold Cuban link bracelet with secure clasp',
     category: 'bracelet'
   },
   {
     id: 11,
-    name: 'DIAMOND TENNIS',
-    price: '$8,500',
-    image: 'https://images.unsplash.com/photo-1611591439146-c95010f4f1e9?auto=format&fit=crop&w=1200&q=80',
-    description: 'Platinum tennis bracelet with round brilliant diamonds',
+    name: 'LEATHER CUFF',
+    price: '$3,800',
+    image: 'https://images.unsplash.com/photo-1611591437281-4608be1af65f?auto=format&fit=crop&w=1200&q=80',
+    description: 'Hand-stitched Italian leather cuff with titanium hardware',
     category: 'bracelet'
   },
   
@@ -117,7 +117,7 @@ export const products: Product[] = [
     id: 12,
     name: 'FOUNTAIN PEN',
     price: '$3,200',
-    image: 'https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?auto=format&fit=crop&w=1200&q=80',
+    image: 'https://images.unsplash.com/photo-1583485088329-0ef69df39d9e?auto=format&fit=crop&w=1200&q=80',
     description: '18k gold nib fountain pen with ebonite body',
     category: 'pen'
   },
@@ -125,7 +125,7 @@ export const products: Product[] = [
     id: 13,
     name: 'ROLLERBALL SET',
     price: '$2,800',
-    image: 'https://images.unsplash.com/photo-1583485088329-0ef69df39d9e?auto=format&fit=crop&w=1200&q=80',
+    image: 'https://images.unsplash.com/photo-1583485088488-643b32cbf5c8?auto=format&fit=crop&w=1200&q=80',
     description: 'Matte black rollerball pen with palladium details',
     category: 'pen'
   }
@@ -188,17 +188,18 @@ export const ProductShowcase = () => {
           {filteredProducts.map((product, index) => (
             <div
               key={product.id}
-              className="group cursor-pointer animate-slide-up"
+              className="group animate-slide-up"
               style={{ animationDelay: `${index * 0.1}s` }}
               onMouseEnter={() => setHoveredProduct(product.id)}
               onMouseLeave={() => setHoveredProduct(null)}
+              onClick={() => handleViewDetails(product.id)}
             >
-              <div className="relative overflow-hidden rounded-lg bg-obsidian">
-                <div className="aspect-square overflow-hidden">
+              <div className="relative overflow-hidden rounded-lg bg-obsidian cursor-pointer">
+                <div className="relative aspect-square overflow-hidden">
                   <img
                     src={product.image}
                     alt={product.name}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    className="h-full w-full object-cover transition-all duration-300 group-hover:scale-105"
                   />
                   
                   {/* Overlay */}
@@ -249,6 +250,7 @@ export const ProductShowcase = () => {
             size="lg" 
             variant="outline"
             className="border-brushed-steel text-brushed-steel hover:bg-brushed-steel hover:text-obsidian px-8 py-4"
+            onClick={() => navigate('/shop?category=watch')}
           >
             VIEW ALL TIMEPIECES
             <ArrowRight className="ml-2" size={20} />
