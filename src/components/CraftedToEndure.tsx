@@ -69,7 +69,7 @@ export const CraftedToEndure = () => {
           <div className="relative">
             <div className="aspect-square rounded-lg overflow-hidden">
               <img
-                src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80"
+                src="img/CRAFTED TO ENDURE.jpg"
                 alt="Luxury watch craftsmanship"
                 className="w-full h-full object-cover"
               />

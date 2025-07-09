@@ -7,7 +7,7 @@ export const LegacySection = () => {
           {/* Image */}
           <div className="order-2 lg:order-1">
             <img
-              src="https://images.unsplash.com/photo-1548171915-e79a380a2a4b?auto=format&fit=crop&w=800&q=80"
+              src="img/THE LEGACY.jpg"
               alt="Luxury watch heritage and craftsmanship"
               className="w-full rounded-lg shadow-2xl"
             />

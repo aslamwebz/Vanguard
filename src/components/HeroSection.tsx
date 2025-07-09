@@ -1,6 +1,6 @@
 
-import { ArrowRight, ShoppingBag } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { ArrowRight, Play } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 export const HeroSection = () => {
   return (
@@ -30,23 +30,20 @@ export const HeroSection = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-            <a 
-              href="#timepieces"
-              className="inline-flex items-center justify-center bg-brushed-steel text-obsidian hover:bg-pale-steel font-semibold px-8 py-4 text-lg tracking-wide transition-all duration-300 hover:scale-105 rounded-md group"
+            <Button 
+              size="lg" 
+              className="bg-brushed-steel text-obsidian hover:bg-pale-steel font-semibold px-8 py-4 text-lg tracking-wide transition-all duration-300 hover:scale-105"
             >
               EXPLORE THE COLLECTION
-              <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
-            </a>
+              <ArrowRight className="ml-2" size={20} />
+            </Button>
             
-            <Link
-              to="/shop"
-              className="flex items-center gap-3 text-white hover:text-brushed-steel transition-colors group"
-            >
+            <button className="flex items-center gap-3 text-white hover:text-brushed-steel transition-colors group">
               <div className="w-12 h-12 rounded-full border-2 border-white group-hover:border-brushed-steel flex items-center justify-center transition-colors">
-                <ShoppingBag size={16} className="ml-0.5" />
+                <Play size={16} className="ml-1" />
               </div>
-              <span className="font-medium tracking-wide">SHOP NOW</span>
-            </Link>
+              <span className="font-medium tracking-wide">WATCH STORY</span>
+            </button>
           </div>
         </div>
       </div>

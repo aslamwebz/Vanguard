@@ -19,7 +19,7 @@ export const products: Product[] = [
     id: 1,
     name: 'SOVEREIGN CLASSIC',
     price: '$12,500',
-    image: 'https://images.unsplash.com/photo-1547996160-81dfa63595aa?auto=format&fit=crop&w=1200&q=80',
+    image: 'img/SOVEREIGN CLASSIC.jpg',
     description: 'Swiss automatic movement with 42mm rose gold case',
     category: 'watch'
   },
@@ -27,7 +27,7 @@ export const products: Product[] = [
     id: 2,
     name: 'IMPERIAL CHRONO',
     price: '$18,900',
-    image: 'https://images.unsplash.com/photo-1547996476-9a9d9f2b5b00?auto=format&fit=crop&w=1200&q=80',
+    image: 'img/IMPERIAL CHRONO.jpg',
     description: 'Limited edition chronograph with titanium construction',
     category: 'watch'
   },
@@ -35,7 +35,7 @@ export const products: Product[] = [
     id: 3,
     name: 'DYNASTY ELITE',
     price: '$25,000',
-    image: 'https://images.unsplash.com/photo-1547996476-9a9d9f2b5b00?auto=format&fit=crop&w=1200&q=80',
+    image: 'img/DYNASTY ELITE.jpg',
     description: 'Perpetual calendar with moon phase complications',
     category: 'watch'
   },
@@ -45,7 +45,7 @@ export const products: Product[] = [
     id: 4,
     name: 'PLATINUM SIGNET',
     price: '$8,500',
-    image: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1200&q=80',
+    image: 'img/PLATINUM SIGNET.jpg',
     description: 'Handcrafted platinum signet ring with family crest',
     category: 'ring'
   },
@@ -53,7 +53,7 @@ export const products: Product[] = [
     id: 5,
     name: 'ETERNITY BAND',
     price: '$12,000',
-    image: 'https://images.unsplash.com/photo-1603569283847-aa295f0d016a?auto=format&fit=crop&w=1200&q=80',
+    image: 'img/ETERNITY BAND.jpg',
     description: 'Eternity band with channel-set diamonds',
     category: 'ring'
   },
@@ -63,7 +63,7 @@ export const products: Product[] = [
     id: 6,
     name: 'SILK SATIN TIE',
     price: '$295',
-    image: 'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=1200&q=80',
+    image: 'img/SILK SATIN TIE.jpg',
     description: 'Hand-rolled Italian silk tie with hidden stitch',
     category: 'tie'
   },
@@ -71,7 +71,7 @@ export const products: Product[] = [
     id: 7,
     name: 'CASHMERE BOW TIE',
     price: '$395',
-    image: 'https://images.unsplash.com/photo-1581952976147-5a2d15560349?auto=format&fit=crop&w=1200&q=80',
+    image: 'img/CASHMERE BOW TIE.jpg',
     description: 'Self-tie cashmere bow tie in midnight blue',
     category: 'tie'
   },
@@ -81,7 +81,7 @@ export const products: Product[] = [
     id: 8,
     name: 'OBSIDIAN CUFFLINKS',
     price: '$1,950',
-    image: 'https://images.unsplash.com/photo-1602173574767-37ac01994b2a?auto=format&fit=crop&w=1200&q=80',
+    image: 'img/OBSIDIAN CUFFLINKS.jpg',
     description: '18k gold cufflinks with obsidian inlay',
     category: 'cufflinks'
   },
@@ -89,7 +89,7 @@ export const products: Product[] = [
     id: 9,
     name: 'ENAMEL CUFFLINKS',
     price: '$1,250',
-    image: 'https://images.unsplash.com/photo-1602173574767-37ac01994b2a?auto=format&fit=crop&w=1200&q=80',
+    image: 'img/ENAMEL CUFFLINKS.jpg',
     description: 'Sterling silver with royal blue enamel',
     category: 'cufflinks'
   },
@@ -99,7 +99,7 @@ export const products: Product[] = [
     id: 10,
     name: 'GOLD LINK BRACELET',
     price: '$5,200',
-    image: 'https://images.unsplash.com/photo-1603569283847-aa295f0d016a?auto=format&fit=crop&w=1200&q=80',
+    image: 'img/GOLD LINK BRACELET.jpg',
     description: '18k gold Cuban link bracelet with secure clasp',
     category: 'bracelet'
   },
@@ -107,7 +107,7 @@ export const products: Product[] = [
     id: 11,
     name: 'LEATHER CUFF',
     price: '$3,800',
-    image: 'https://images.unsplash.com/photo-1611591437281-4608be1af65f?auto=format&fit=crop&w=1200&q=80',
+    image: 'img/LEATHER CUFF.jpg',
     description: 'Hand-stitched Italian leather cuff with titanium hardware',
     category: 'bracelet'
   },
@@ -117,7 +117,7 @@ export const products: Product[] = [
     id: 12,
     name: 'FOUNTAIN PEN',
     price: '$3,200',
-    image: 'https://images.unsplash.com/photo-1583485088329-0ef69df39d9e?auto=format&fit=crop&w=1200&q=80',
+    image: 'img/FOUNTAIN PEN.jpg',
     description: '18k gold nib fountain pen with ebonite body',
     category: 'pen'
   },
@@ -125,7 +125,7 @@ export const products: Product[] = [
     id: 13,
     name: 'ROLLERBALL SET',
     price: '$2,800',
-    image: 'https://images.unsplash.com/photo-1583485088488-643b32cbf5c8?auto=format&fit=crop&w=1200&q=80',
+    image: 'img/ROLLERBALL SET.jpg',
     description: 'Matte black rollerball pen with palladium details',
     category: 'pen'
   }

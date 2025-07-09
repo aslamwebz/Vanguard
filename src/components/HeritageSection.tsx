@@ -62,7 +62,7 @@ export const HeritageSection = () => {
           
           <div className="relative">
             <img
-              src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?auto=format&fit=crop&w=800&q=80"
+              src="img/A CENTURY OF EXCELLENCE.jpg"
               alt="Master craftsman at work"
               className="rounded-lg shadow-2xl"
             />

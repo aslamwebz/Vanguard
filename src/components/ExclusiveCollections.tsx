@@ -9,7 +9,7 @@ const collections = [
     name: 'BLACK DIAMOND SERIES',
     subtitle: 'Limited to 50 pieces worldwide',
     price: 'Starting at $85,000',
-    image: 'https://images.unsplash.com/photo-1609081219090-a6d81d3085bf?auto=format&fit=crop&w=800&q=80',
+    image: 'img/BLACK DIAMOND SERIES.jpg',
     icon: Diamond,
     features: ['Black Diamond Dial', 'Platinum Case', 'Hand-Engraved Movement']
   },
@@ -18,7 +18,7 @@ const collections = [
     name: 'LIGHTNING COLLECTION',
     subtitle: 'Speed meets elegance',
     price: 'Starting at $45,000',
-    image: 'https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?auto=format&fit=crop&w=800&q=80',
+    image: 'img/LIGHTNING COLLECTION.jpg',
     icon: Zap,
     features: ['Racing-Inspired Design', 'Carbon Fiber Elements', 'Chronograph Function']
   },
@@ -27,7 +27,7 @@ const collections = [
     name: 'CELESTIAL MASTERS',
     subtitle: 'Astronomical complications',
     price: 'Starting at $125,000',
-    image: 'https://images.unsplash.com/photo-1587836374828-4dbafa94cf0e?auto=format&fit=crop&w=800&q=80',
+    image: 'img/CELESTIAL MASTERS.jpg',
     icon: Star,
     features: ['Moon Phase Display', 'Star Chart Dial', 'Celestial Navigation']
   }

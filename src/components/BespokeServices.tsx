@@ -42,7 +42,7 @@ export const BespokeServices = () => {
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-16">
           <div>
             <img
-              src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?auto=format&fit=crop&w=800&q=80"
+              src="img/YOUR VISION, OUR CRAFT.jpg"
               alt="Bespoke watchmaking process"
               className="rounded-lg shadow-2xl"
             />
