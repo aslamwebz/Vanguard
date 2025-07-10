@@ -64,7 +64,7 @@ export const Footer = () => {
         {/* Bottom */}
         <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="text-gray-400 text-sm font-serif">
-            © 2024 Vanguard & Co. All rights reserved.
+            © 2025 Em@Webzone. All rights reserved.
           </div>
           <div className="flex gap-6 text-sm font-serif">
             <a href="#" className="text-gray-400 hover:text-white transition-colors">Privacy Policy</a>
