@@ -2,15 +2,25 @@
 
 ## Getting Started
 
-### Development
+### Clone the project
 
-First, install dependencies:
+```bash
+git clone https://github.com/aslamwebz/Vanguard.git
+```
+
+### Go to the project directory
+
+```bash
+cd Vanguard
+```
+
+### Install dependencies
 
 ```bash
 npm install
 ```
 
-Then, run the development server:
+### Start the server
 
 ```bash
 npm run dev
